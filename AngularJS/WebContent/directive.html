@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+<script>
+	var app = angular.module("test_app", [])
+	
+	app.directive("directive1", function(){
+		return {
+			restrict : "E", 
+			template : "사용자 정의 지시자1" 
+			<!-- directive1 이란 태그를 template에 정의된 값으로 대체하겠단 의미 -->
+		}
+	})
+	
+	app.directive("directive2", function(){
+		return {
+			restrict : "A", 
+			template : "사용자 정의 지시자2" 
+		}
+	})
+	
+	app.directive("directive3", function(){
+		return {
+			restrict : "C", 
+			template : "사용자 정의 지시자3" 
+		}
+	})
+	
+	app.directive("directive4", function(){
+		return {
+			restrict : "M", 
+			replace : true, 
+			<!--교체 유뮤에 대한 것으로, 주석 대신에 들어갈 것인지에 대해 묻는것 -->
+			template : "<p>사용자 정의 지시자4 : 사용자 정의 지시자4</p>" 
+		}
+	})
+	
+	app.directive("directive5", function(){
+		return {
+			restrict : "EC", 
+			template : "사용자 정의 지시자5" 
+		}
+	})
+	
+</script>
+</head>
+<body>
+	<div ng-app="test_app" ng-init="data1=100; data2='문자열'; data3='red'; data4=[100, 200, 300]">
+		<p> data1 = {{ data1 }} </p>
+		<p> data2 = {{ data2 }} </p>
+		<p> data3 = {{ data3 }} </p>
+		<p style="color:{{ data3 }}"> 문자열 </p>
+		<p ng-repeat="a1 in data4"> {{ a1 }} </p> 
+		<!-- p태그를 배열안에 들어있는 멤버의 수 만큼 반복함, 
+				a1는  data4 안에서 나오는 값을 임의로 저장하는 변수라고 생각하자 -->
+		<p> 사용자 정의 지시자1 : <directive1></directive1></p>
+		<p> 사용자 정의 지시자2 : <span directive2></span></p>
+		<p> 사용자 정의 지시자3 : <span class="directive3"></span></p>
+		<!--  directive: directive4 -->
+		<!-- 반드시 "directve: " 가 있고 그 뒤에 지시자 이름이 있어야 함,띄어쓰기하면 안됨   -->
+		<p> 사용자 정의 지시자5 : <directive5></directive5></p>
+		<p> 사용자 정의 지시자5 : <span class="directive5"></span></p>
+	</div>
+</body>
+</html>

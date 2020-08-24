@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+</head>
+<body>
+	<div ng-app="" ng-init="data1=100; data2=200; data3='문자열1'; data4='문자열2'; obj={a1:100, a2:200}; array=[10, 20, 30]"> 
+	<!-- ng-init : 해당 태그인 div에서 data1를 쓰면 100 이란 값을 사용하겠다는 말-->
+		<p> 5 + 5 = {{ 5+5 }} </p>
+		<p> data1 = {{ data1 }}</p>
+		<p> data1 + data2 = {{ data1 + data2 }}</p>
+		<p> 문자열 = {{ '문자열1' }}</p>
+		<p> data3 = {{ data3 }} </p>
+		<p> data3 + data4 = {{ data3 + data4 }}</p>
+		<p> obj.a1 = {{ obj.a1 }} </p>
+		<p> obj.a2 = {{ obj.a2 }} </p>
+		<p> array[0] = {{ array[0] }} </p>
+		<p> array[1] = {{ array[1] }} </p>
+		<p> array[2] = {{ array[2] }} </p>
+	</div>
+</body>
+</html>
